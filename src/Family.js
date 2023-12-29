@@ -1,0 +1,201 @@
+import { useEffect } from "react";
+import useScript from './useScript';
+
+export default function Family(){
+    //useScript('https://external.productinformation.abb.com/PisAppTrain/current/pis.js');
+    useScript('https://external.productinformation.abb.com/PisAppTrain/6_3_0/pis.js');
+   
+    const PIS = window.PIS;
+    const itemsnew = [];
+    useEffect(() => {
+      const basicCat = {
+        "children": [],
+        "hitCount": 1,
+        "configuratorHitCount": 0,
+        "additionalInfo": [
+            {
+                "type": "AllowPriceList",
+                "value": false
+            }
+        ],
+        "hasChildren": false,
+        "images": [
+            {
+                "url": "https://train.cdn.productimages.abb.com/9PAA00000156089_720x540.jpg",
+                "thumbnailUrl": "https://train.cdn.productimages.abb.com/9PAA00000156089_195x195.jpg",
+                "masterUrl": "https://train.cdn.productimages.abb.com/9PAA00000156089_master.jpg"
+            },
+            {
+                "url": "https://train.cdn.productimages.abb.com/9IBA002197_400x400.jpg",
+                "thumbnailUrl": "https://train.cdn.productimages.abb.com/",
+                "masterUrl": "https://train.cdn.productimages.abb.com/9IBA002197_master.jpg"
+            },
+            {
+                "url": "https://train.cdn.productimages.abb.com/9IBA024998_400x400.jpg",
+                "thumbnailUrl": "https://train.cdn.productimages.abb.com/9IBA024998_195x195.jpg",
+                "masterUrl": "https://train.cdn.productimages.abb.com/9IBA024998_master.jpg"
+            },
+            {
+                "url": "https://train.cdn.productimages.abb.com/9IBA003631_720x540.jpg",
+                "thumbnailUrl": "https://train.cdn.productimages.abb.com/9IBA003631_195x195.jpg",
+                "masterUrl": "https://train.cdn.productimages.abb.com/9IBA003631_master.jpg"
+            },
+            {
+                "url": "https://train.cdn.productimages.abb.com/9IBA000535_720x540.jpg",
+                "thumbnailUrl": "https://train.cdn.productimages.abb.com/9IBA000535_195x195.jpg",
+                "masterUrl": "https://train.cdn.productimages.abb.com/9IBA000535_master.jpg"
+            },
+            {
+                "url": "https://train.cdn.productimages.abb.com/9IBA007441_720x540.jpg",
+                "thumbnailUrl": "https://train.cdn.productimages.abb.com/9IBA007441_195x195.jpg",
+                "masterUrl": "https://train.cdn.productimages.abb.com/9IBA007441_master.jpg"
+            }
+        ],
+        "cid": "",
+        "name": "See All",
+        "nodeLevel": "0",
+        "nodeUse": "L0"
+    };
+    
+    const pisInstance = PIS.Products.getInstance();
+    const options = pisInstance.getDefaultOptions();
+    const urlParams = new URLSearchParams(window.location.search);   
+    const cid = urlParams.get('cid');
+ 
+    options.accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjVCM25SeHRRN2ppOGVORGMzRnkwNUtmOTdaRSIsImtpZCI6IjVCM25SeHRRN2ppOGVORGMzRnkwNUtmOTdaRSJ9.eyJhdWQiOiJkNzE2NWNjZi1lYzg1LTQyNmMtOGM0OS05YTc2YjJmNGQ1OTciLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC8zNzJlZTllMC05Y2UwLTQwMzMtYTY0YS1jMDcwNzNhOTFlY2QvIiwiaWF0IjoxNzAzODQyMjEyLCJuYmYiOjE3MDM4NDIyMTIsImV4cCI6MTcwMzg0NjExMiwiYWlvIjoiRTJWZ1lIaGNQZVgrOVlNbW10VytaL3IzekN3TEJBQT0iLCJhcHBpZCI6ImVmMGQ5NmQyLWY2NjItNDc0OC1hMzAxLTNlZWIxNGJhNGUwNyIsImFwcGlkYWNyIjoiMSIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzM3MmVlOWUwLTljZTAtNDAzMy1hNjRhLWMwNzA3M2E5MWVjZC8iLCJvaWQiOiI3ZjZmYjUzYi1lNGQzLTQ5NjUtOWI3YS0zMGRmNzliZDdiOGQiLCJyaCI6IjAuQVFJQTRPa3VOLUNjTTBDbVNzQndjNmtlemM5Y0Z0ZUY3R3hDakVtYWRyTDAxWmNDQUFBLiIsInN1YiI6IjdmNmZiNTNiLWU0ZDMtNDk2NS05YjdhLTMwZGY3OWJkN2I4ZCIsInRpZCI6IjM3MmVlOWUwLTljZTAtNDAzMy1hNjRhLWMwNzA3M2E5MWVjZCIsInV0aSI6IjZ1SkIyd0JRX2tpWk00anFQc2hNQVEiLCJ2ZXIiOiIxLjAifQ.BOvjQRxcDXbs2doBd6Z5uOKOydKvPNqJaSE40oYuIoTtNBueYaXFMkrIuPEUa2Z0LrAg5WU0e3PKZaEnPk-59JJell0icwO4qq1MP1nWfrG0CxNjuXf6YDldWLQ2xeKJL-vzjTlk0VFgAJmzJynwf09mN4z_H8iJVAUKmni9DQCpCVGL1xxSCEiZaEET3HdU4rysjSXMMsXjN98BrAHrS0tj3F-_CGgfC8z3XGL2X3OMyd8fa5-5rFXlqpgPRHy0FwFuHxUyBsCuIlAh-UEjaShxJdag3Vse6Xb5r0O5dguHeBhUTrWzG2ZiFqN9hoaInciuPDpakGREVguu07Ngzw";
+    options.application = {
+            "appCode": "9AAG028817",
+            "langCode": "en",
+    };
+
+    options.components.searchToolbar = {
+                "displayModesVisible": true ,
+                "countVisible": false,
+                "sortVisible": true,
+                "pageSizesVisible": false,
+    };
+
+    options.components.searchCategories = {
+        "maxCategoriesVisible": 7,
+        "icon":true
+    }
+
+    options.components.searchPagination.visiblePages = 6;
+
+    options.components.itemsGrid = {
+                "imageSize": "10rem",    
+                "itemTemplate":`       
+                <div v-if="item.productId !== -1">
+                    <div class="d-flex align-items-start justify-content-between" style="min-height:80px;width:100%;">
+                        <div>
+                        <div style="color:#36f">
+                            <strong>{{item.attributes.ProductName.values[0].text}}</strong>
+                        </div>
+                        <div style="color:#6c757d; font-weight:500; font-size: 0.875em">
+                            {{item.productId}}
+                        </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                        <img
+                            v-bind:src="item.images[0].url"
+                            style="width:5rem;"
+                        /> 
+                        </div>                     
+                    </div>
+                    <hr>
+                    <div>
+                        <ul>
+                        <li>Key Feature 1</li>
+                        <li>Key Feature 2</li>
+                        <li>Key Feature 3</li>
+                        </ul>
+                    </div>
+                    <hr>
+                    <div style="min-height:150px"> {{item.attributes.LongDescription.values[0].text}}</div>
+                    <div class="d-flex flex-row justify-content-between" style="margin-top:20px">
+                    
+                    <button class="btn" style="border: 1px solid gray;border-radius:15px" @click="emit('app:details',item)">See more</button>
+                    <button class="btn " @click="emit('app:download',item)">Documents -></button>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-center align-items-center" style="height:100%" v-if="item.productId === -1">
+                    <h1>Advertise</h1>
+                </div>
+                `
+            };
+    options.components.searchFilters.card =true;
+    options.styles.push(
+      { url: "/custom.css" }
+    );
+    
+
+    options.inheritStyles = true;
+    options.dataInterceptor = (e) => {
+        if (e.type === "Products") {
+            // we need to keep the same array ref for child components, so instead of reassigning items we replace array items
+            if (e.data.items) {
+              console.log("Items Length: " + e.data.items.length);
+             
+                              const advertiseItem = {...e.data.items[0]};
+                advertiseItem.productId = -1;
+                const itemsLength = e.data.items.length;
+                let advertiseIndexArray = [];
+                for(let i=2; i <e.data.items.length; i=i+9){
+                    if(i>0){
+                        advertiseIndexArray.push(i);
+                    }
+                }
+                console.log(advertiseIndexArray);
+                for(let i=0; i<advertiseIndexArray.length; i++){
+                    e.data.items.splice(advertiseIndexArray[i], 0, advertiseItem);
+                }
+
+                console.log(e.data.items);
+            }
+        }
+        else if (e.type === "Classifications") {
+            // we need to keep the same array ref for child components, so instead of reassigning items we replace array items
+            if (e.data.items) {
+                e.data.items.splice(0, 0, basicCat);
+           }
+           console.log(e.data.items);
+         }
+      return Promise.resolve(e)
+      };
+          const route = {
+              "displayMode": "grid",
+              "pagination": { page: 1, pageSize: 8 },
+              "cid":cid
+          }
+          pisInstance.on("app:details", (item) => {
+              window.location.href = '/detail?p=' + item.productId;
+          })
+          pisInstance.on("app:download", (item) => {
+              window.location.href = '/detail#download?p=' + item.productId;
+      })
+          pisInstance.init(options, route);
+    }, []);
+
+    return (
+      <pis-products-instance>
+        <div class="d-flex flex-row mt-20">
+              <pis-products-loading-indicator>
+                  <div style={{width: '24%', float: 'left'}}>
+                      <pis-products-search-filters></pis-products-search-filters>
+                  </div>
+                  <div style={{width: '75%', float: 'right'}}>
+                  <pis-products-search-toolbar></pis-products-search-toolbar>
+
+                      <pis-products-grid-view>
+                            <pis-products-search-grid></pis-products-search-grid>
+                      </pis-products-grid-view>                    
+                      <pis-products-search-pagination></pis-products-search-pagination>
+                      <pis-products-search-no-results-view>
+                          <pis-products-search-no-results></pis-products-search-no-results>
+                      </pis-products-search-no-results-view>
+                  </div>
+              </pis-products-loading-indicator>
+        </div>
+      </pis-products-instance>      
+      );
+}

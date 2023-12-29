@@ -1,0 +1,70 @@
+.pis-component {
+    --pis-body-bg: #f7f5f7;
+}
+
+.pis-products-search-grid .card,
+.pis-products-search-list .card,
+.pis-products-search-filters .card {
+    border: none;
+    border-radius: 1rem;
+    background: white !important;
+}
+
+.pis-products-search-grid .card .card-footer {
+    background: white !important;
+    border-top: none;
+    border-radius: 1rem;
+}
+
+.pis-products-search-grid .card .pis-image {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    margin: 0 1rem !important;
+}
+
+.pis-products-search-filters .card-header {
+    border: none;
+    border-radius: 1rem 1rem 0 0 !important;
+    background: white !important;
+    font-size: 1.4rem;
+}
+
+.pis-products-search-filters-status .badge {
+    background: white !important;
+}
+
+.pis-products-mobile-nav .btn-outline-primary {
+    background: white;
+}
+
+.pis-products-details-general-information, .pis-products-details-attribute-groups {
+    background: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* custom styles */
+
+.pis-component .card-img-top {
+    display: none !important;
+}
+
+.pis-component .card-body > div:first-child,
+.pis-component .card-body div.small
+ {
+    display: none !important;
+}
+
+.pis-component ul,li {
+    /* margin:0px; */
+    padding-left: 15px;
+}
+
+/* .pis-component li {
+    margin:0px;
+    padding:0px;
+} */
+
